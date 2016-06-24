@@ -1,0 +1,20 @@
+---
+title: "5-minute markdown test"
+author: "Ian Lyttle"
+date: "June 24, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an attempt to see if it will take more than five minutes to get something in working using R Markdown, in hopes of collecting from Yihui.
+
+\[
+F = ma
+\]
+
+I lose.

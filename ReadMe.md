@@ -8,11 +8,11 @@
 
    - YAML metadata
    - LaTeX math
-   - tables
+   - syntax highlighting
    - raw HTML/LaTeX
+   - tables
    - footnotes
    - citations
-   - syntax highlighting
 
 2. R Markdown output formats
 
@@ -23,12 +23,11 @@
 3. Customizing output
 
    - Basic format options: TOC, numbered sections, `self-contained`,
-     `fig_height`, ...
+     `fig_height`, themes, ...
    - Customize CSS for HTML output
      - ioslides example re slide numbers
-   - Cusstomize LaTeX preample for PDF output
+   - Customize LaTeX preample for PDF output
    - Pandoc templates
-     - rticles examples
    - Customize Word templates (header/footer, font styles, ...)
 
 ### Part 2: New output formats
@@ -39,18 +38,23 @@
    - pandoc options
    - pre/post-processor functions
 
-2. Examples of new formats
+2. Examples of new output formats
 
-   - `html_vignette`, tufte package (`tufte::tufte_html()`,
+   - `html_vignette`, `rtf_document`
+   -  tufte package (`tufte::tufte_html()`,
      `tufte::tufte_handout()`)
-   - Long-form documents using bookdown
+   - Long-form documents using [bookdown](https://bookdown.org)
      - cross-references of figures/tables/sections
      - separate HTML pages for chapters
 
 ### Part 3: Other applications
 
-1. HTML widgets
+1. Journal articles ([rticles](https://github.com/rstudio/rticles))
 
-2. Shiny apps within R Markdown
+2. Build websites
 
-3. Run code from other languages (C, C++, Python, ...)
+3. HTML widgets
+
+4. Shiny apps within R Markdown
+
+5. Run code from other languages (C, C++, Python, ...)

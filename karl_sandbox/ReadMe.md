@@ -10,3 +10,5 @@
 
 - [`CustomWord`](CustomWord) - Example on customizing the output for a
   word document.
+
+- [`HTMLwidgets`](HTMLwidgets) - Examples of htmlwidgets-based packages.

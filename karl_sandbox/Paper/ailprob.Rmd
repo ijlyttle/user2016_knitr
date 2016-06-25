@@ -4,7 +4,7 @@ author: Karl W. Broman, Department of Biostatistics and Medical Informatics, Uni
   of Wisconsin-Madison
 bibliography: ailprob.bib
 biblio-style: genetics
-fontfamily: palatino
+fontfamily: mathpazo
 output:
   pdf_document:
     citation_package: natbib

@@ -272,6 +272,19 @@ The value of a variable can be different for different output formats, e.g. `$ti
 - Pandoc's default templates: https://github.com/jgm/pandoc-templates
 - **rmarkdown**'s default templates: https://github.com/rstudio/rmarkdown/tree/master/inst/rmd
 
+
+# Journal articles
+
+- the **rticles** package https://github.com/rstudio/rticles
+- `install.packages('rticles')`
+- different (LaTeX) templates for different journals
+- demo (Journal of Statistical Software)
+
+<!--
+** You can just use the Rmd skeleton that can be created from RStudio's menu: File -> New File -> R Markdown -> From Templates -> Journal of Statistical Software. **
+-->
+
+
 # Customize Word templates
 
 - a Word document is not a plain-text file, so you cannot create a template like most other formats
@@ -293,6 +306,8 @@ The value of a variable can be different for different output formats, e.g. `$ti
 <!--
 ** It will be greate if you can do a live demo, but it is fine if you only play this video. **
 -->
+
+
 
 # Part II: New output formats
 
@@ -364,22 +379,10 @@ It is a list of **knitr** and Pandoc options, plus some functions (pre/post proc
 
 # Part III: Other applications
 
-- Journal articles
 - Build websites
-- HTML widgets
 - Interactive Shiny documents
+- HTML widgets
 - Code chunks of other languages
-
-# Journal articles
-
-- the **rticles** package https://github.com/rstudio/rticles
-- `install.packages('rticles')`
-- different (LaTeX) templates for different journals
-- demo (Journal of Statistical Software)
-
-<!--
-** You can just use the Rmd skeleton that can be created from RStudio's menu: File -> New File -> R Markdown -> From Templates -> Journal of Statistical Software. **
--->
 
 # Build websites
 
@@ -388,6 +391,17 @@ It is a list of **knitr** and Pandoc options, plus some functions (pre/post proc
 - minimal requirements: `index.(R)md` and `_site.yml`
 - RStudio (currently [preview version](http://www.rstudio.com/products/rstudio/download/preview/), e.g. 0.99.1242) can automatically detect R Markdown website _projects_, and you can use the `Build` button to build the website
 - demo site.Rproj
+
+# Interactive Shiny documents
+
+- you can embed shiny apps in R Markdown
+- write UI/server logic code directly in R code chunks, instead of separate R scripts
+- the output document is essentially a Shiny app, so requires a running R session (unlike typical R Markdown output documents, which are static HTML/PDF files)
+- demo
+
+<!--
+** You can just use the default Shiny document provided in RStudio: File -> New File -> R Markdown -> Shiny. **
+-->
 
 # HTML widgets
 
@@ -427,17 +441,6 @@ HTMLWidgets.widget({
 - demo htmlwidgets.Rmd
 <!--
 ** This demo requires a bunch of R packages. **
--->
-
-# Interactive Shiny documents
-
-- you can embed shiny apps in R Markdown
-- write UI/server logic code directly in R code chunks, instead of separate R scripts
-- the output document is essentially a Shiny app, so requires a running R session (unlike typical R Markdown output documents, which are static HTML/PDF files)
-- demo
-
-<!--
-** You can just use the default Shiny document provided in RStudio: File -> New File -> R Markdown -> Shiny. **
 -->
 
 # Run code from other languages in R Markdown

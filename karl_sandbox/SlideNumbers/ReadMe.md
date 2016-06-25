@@ -24,3 +24,10 @@ Here's how I originally figured out the slide number thing:
 
 - Looked at the [default.css](https://github.com/rstudio/rmarkdown/blob/master/inst/rmd/ioslides/ioslides-13.5.1/theme/css/default.css#L302-L309)
   file for the ioslides template at <github.com/rstudio/rmarkdown>.
+
+
+---
+
+- [`fruitsnacks_slides3.Rmd`](fruitsnacks_slides3.Rmd) is an attempt
+  to use the pandoc extension `+link_attributes` to avoid the need for
+  the `<img />` tags.

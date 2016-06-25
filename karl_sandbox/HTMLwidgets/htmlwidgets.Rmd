@@ -1,0 +1,72 @@
+---
+title: "HTMLwidgets within R Markdown"
+output: 
+  html_document:
+    fig_height: 8
+    fig_width: 10
+---
+
+[htmlwidgets](http://www.htmlwidgets.org) is a package to facilitate
+the use of JavaScript-based graphics with R. A super nice feature is
+that the graphics will be rendered in the appropriate way, according
+to where they are called (in browser, within RStudio's plot frame,
+within an R Markdown document, or as part of a Shiny app.
+
+Here's a scatterplot that you can zoom and pan, via
+[scatterD3](https://github.com/juba/scatterD3).
+
+```{r zoomscatterplot}
+n <- 100
+x <- rnorm(n)
+y <- rnorm(n)+x
+grp <- as.numeric(y < 0)
+library(scatterD3)
+scatterD3(x, y, lab=paste0("pt", 1:n), col_var=grp,
+          colors=c("slateblue", "Orchid"))
+```
+
+Here's a map of the area via [leaflet](http://rstudio.github.io/leaflet/)
+
+```{r leaflet_map, message=FALSE}
+library(ggmap)
+addr <- c(UseR="366 Galvez St, Stanford, CA",
+          Hotel="235 Hamilton Ave, Palo Alto, CA")
+lonlat <- geocode(addr, source="google")
+library(leaflet)
+leaflet() %>%
+    setView(lng= lonlat$lon[1], lat=lonlat$lat[1],
+            zoom=14) %>%
+    addProviderTiles("CartoDB.Positron") %>% 
+    addCircleMarkers(lng=lonlat$lon, 
+                     lat=lonlat$lat,
+                     popup=paste0(lonlat$.id),
+                     color=c("slateblue", "Orchid"),
+                     fillColor=c("slateblue", "Orchid"))
+```
+
+You can make heatmaps with [d3heatmap](https://github.com/rstudio/d3heatmap). For example, here's a heatmap of a correlation matrix:
+
+```{r d3heatmap, fig.width=6, fig.height=5}
+library(d3heatmap)
+d3heatmap(cor(iris[,1:4]), Rowv=FALSE, Colv=FALSE, colors="Blues")
+```
+
+For network diagrams, consider [networkD3](https://github.com/christophergandrud/networkD3).
+
+```{r networkD3, message=FALSE}
+library(networkD3)
+data(MisLinks)
+data(MisNodes)
+# Create graph
+forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
+             Target = "target", Value = "value", NodeID = "name",
+             Group = "group", opacity = 0.8, zoom = TRUE)
+```
+
+Scatterplot matrices with [pairsD3](https://github.com/garthtarr/pairsD3/).
+
+```{r pairsD3}
+library(pairsD3)
+pairsD3(iris[,1:4],group=iris[,5],
+        labels=gsub("\\.", " ", names(iris)))
+```

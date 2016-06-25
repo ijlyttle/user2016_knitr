@@ -1,0 +1,19 @@
+name: running-notes
+output_dir: _site
+navbar:
+  title: "Annotations to Yihui's presentation"
+  right:
+    - text: "Introduction"
+      href: intro.html
+    - text: "New Output Formats"
+      menu:
+        - text: "Output format"
+          href: format_output_format.html
+    - text: "Other Applications"
+      menu:
+        - text: "Shiny"
+          href: other_shiny.html
+output:
+  html_document:
+    theme: readable
+    highlight: textmate

@@ -1,0 +1,21 @@
+---
+title: "Output formats"
+---
+
+* The format I (Ian) use the most is `html_document()`.
+
+* Uses bootstrap, which opens up a lot of possibilities.
+  
+* However, there are cases where you need to be a bit more-specialized.
+  
+## HTML vignette
+
+Text
+
+## Tufte
+
+Text 
+
+## bookdown
+
+Text

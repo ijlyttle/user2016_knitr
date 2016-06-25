@@ -5,8 +5,8 @@ author:
 - Han Meimei
 date: "2016/06/27"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
   word_document: default
 bibliography: pandoc-markdown.bib
 ---

@@ -16,22 +16,29 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r load_data}
-fs <- read.csv("https://raw.githubusercontent.com/kbroman/FruitSnacks/master/Data/fruit_snacks.csv")
+url <- paste0("https://raw.githubusercontent.com/",
+              "kbroman/FruitSnacks/master/")
+fs <- read.csv(paste0(url, "Data/fruit_snacks.csv"))
 fs <- fs[,-1] # drop ID column
 n_per_package <- rowSums(fs)
 ```
 
 ```{r download_image}
 imgfile <- "fruitsnacks26.png"
+boximgfile <- "fruitsnacks_box.png"
 if(!file.exists(imgfile))
-    download.file(paste0("https://raw.githubusercontent.com/kbroman/",
-                         "FruitSnacks/master/Photos/", imgfile), imgfile)
+    download.file(paste0(url, "Photos/", imgfile),
+                  imgfile)
+if(!file.exists(boximgfile))
+    download.file(paste0(url, "Photos/", boximgfile),
+                  boximgfile)
 ```
 
 ## Fruit Snacks!
 
 <div class="centered">
-<img src="`r imgfile`" width="60%"/>
+<img src="`r boximgfile`" width="45%"/>
+<img src="`r imgfile`" width="45%"/>
 </div>
 
 ## Number per package

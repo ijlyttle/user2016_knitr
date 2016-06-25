@@ -1,6 +1,13 @@
 ---
 title: "Haplotype probabilities in advanced intercross populations"
 author: "Karl W. Broman, Department of Biostatistics and Medical Informatics, University of Wisconsin-Madison"
+abstract: >
+  Advanced intercross populations have the advantage
+  of greater precision of genetic mapping, due to the
+  accumulation of recombination events across the multiple generations.  Related
+  designs include heterogeneous stock and the diversity outcross population.
+  We derive the two-locus haplotype probabilities on the autosome and X
+  chromosome with these designs.
 output:
   pdf_document:
     citation_package: natbib
@@ -11,19 +18,6 @@ bibliography: ailprob.bib
 biblio-style: genetics
 fontfamily: mathpazo
 ---
-
-
-# ABSTRACT
-
-Advanced intercross populations have the advantage
-of greater precision of genetic mapping, due to the
-accumulation of recombination events across the multiple generations.  Related designs include
-heterogeneous stock and the diversity outcross population.
-We derive the two-locus haplotype probabilities on the autosome and X
-chromosome with these designs.
-
-
-
 
 # Introduction
 

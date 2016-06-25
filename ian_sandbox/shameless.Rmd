@@ -1,0 +1,32 @@
+---
+title: "Shameless self-promotion"
+author: "Ian Lyttle"
+date: "June 25, 2016"
+output: slidy_presentation
+---
+
+```{r}
+library("htmltools")
+library("vembedr") # on cran
+```
+
+Of course, embedding a video is useful only for html-based outputs.
+
+To center the embed, my first thought is to try `fig.align='center'`:
+
+```{r fig.align='center'}
+embed_vimeo(110804387)
+```
+
+This does not work for me.
+
+---
+
+I *can* get it to work by using htmltools functions.
+
+```{r}
+tags$div(align = "center", embed_vimeo(110804387))
+```
+ 
+Is there a knitr-friendly way to do this?
+

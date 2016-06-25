@@ -1,0 +1,78 @@
+---
+title: "About YAML"
+output: html_document
+---
+
+The YAML header in Rmarkdown documents is generally easy to read and
+create, but the syntax can be a bit confusing, so it's worth talking
+about a bit.
+
+[YAML](http://www.yaml.org) is sort of like
+[JSON](http://www.json.org): a system for specifying complex data
+structures in text.
+
+Consider this:
+
+```
+output:
+  html_document:
+      toc: true
+      number_sections: true
+      fig_height: 6
+```
+
+This is specifying a nested, named list, like this:
+
+```{r simple_example, eval=FALSE}
+list(output=list(html_document=list(toc=TRUE, number_sections=TRUE, fig_height=6)))
+```
+
+You can use the [yaml](https://cran.r-project.org/web/packages/yaml/)
+package to convert to and from YAML.
+
+```{r from_YAML}
+library(yaml)
+x <- "output:\n  html_document:\n      toc: true\n      number_sections: true\n      fig_height: 6"
+yaml.load(x)
+```
+
+```{r to_YAML}
+y <- list(output=list(html_document=list(toc=TRUE, number_sections=TRUE, fig_height=6)))
+as.yaml(y)
+cat(as.yaml(y))
+```
+
+Here's a more complicated example.
+
+```
+title: "Haplotype probabilities in advanced intercross populations"
+author:
+- name: "Karl W. Broman"
+  affiliation: "Department of Biostatistics and Medical Informatics, University of Wisconsin-Madison"
+output:
+  pdf_document:
+    citation_package: natbib
+    keep_tex: no
+    template: template.tex
+bibliography: ailprob.bib
+biblio-style: genetics
+fontfamily: mathpazo
+```
+
+The corresponding R object looks like this:
+
+```{r complex_yaml}
+x <- 'title: "Haplotype probabilities in advanced intercross populations"
+author:
+- name: "Karl W. Broman"
+  affiliation: "Department of Biostatistics and Medical Informatics, University of Wisconsin-Madison"
+output:
+  pdf_document:
+    citation_package: natbib
+    keep_tex: no
+    template: template.tex
+bibliography: ailprob.bib
+biblio-style: genetics
+fontfamily: mathpazo'
+yaml.load(x)
+```

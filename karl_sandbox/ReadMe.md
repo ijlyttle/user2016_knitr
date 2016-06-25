@@ -1,5 +1,7 @@
 ### Examples from [Karl](http://kbroman.org)
 
+- [`YAML`](YAML) - Brief discussion of YAML specification.
+
 - [`FruitSnacks`](FruitSnacks) - Basic R Markdown example. Could be
   used for discussing output formats and options like `toc` and
   `number_sections`.

@@ -1,16 +1,15 @@
 ---
 title: "Haplotype probabilities in advanced intercross populations"
-author: Karl W. Broman, Department of Biostatistics and Medical Informatics, University
-  of Wisconsin-Madison
-bibliography: ailprob.bib
-biblio-style: genetics
-fontfamily: mathpazo
+author: "Karl W. Broman, Department of Biostatistics and Medical Informatics, University of Wisconsin-Madison"
 output:
   pdf_document:
     citation_package: natbib
     keep_tex: no
     includes:
       in_header: mypreamble.tex
+bibliography: ailprob.bib
+biblio-style: genetics
+fontfamily: mathpazo
 ---
 
 

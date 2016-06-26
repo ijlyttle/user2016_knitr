@@ -1,6 +1,16 @@
 ---
-title: "Haplotype probabilities in advanced intercross populations"
-author: "Karl W. Broman, Department of Biostatistics and Medical Informatics, University of Wisconsin-Madison"
+author:
+  - name: "Karl W. Broman"
+    affiliation: "Department of Biostatistics and Medical Informatics, University of Wisconsin-Madison"
+    address: >
+      2126 Genetics-Biotechnology Center
+      425 Henry Mall
+      Madison, WI 53706
+    email: kbroman@biostat.wisc.edu
+    url: http://kbroman.org
+title:
+  formatted: "Haplotype probabilities in advanced intercross populations"
+  short:     "AIL Haplotype Probabilities"
 abstract: >
   Advanced intercross populations have the advantage
   of greater precision of genetic mapping, due to the
@@ -8,15 +18,14 @@ abstract: >
   designs include heterogeneous stock and the diversity outcross population.
   We derive the two-locus haplotype probabilities on the autosome and X
   chromosome with these designs.
-output:
-  pdf_document:
-    citation_package: natbib
-    keep_tex: no
-    includes:
-      in_header: mypreamble.tex
+keywords:
+  # at least one keyword must be supplied
+  formatted: [AIL, probability, Markov chains]
+preamble: >
+  \usepackage{amsmath}
+output: 
+  rticles::jss_article
 bibliography: ailprob.bib
-biblio-style: genetics
-fontfamily: mathpazo
 ---
 
 # Introduction
@@ -244,12 +253,12 @@ haplotypes are more frequent on the autosome, and are more frequent in
 HS than in the DO; inbreeding in the pre-CC progenitors of the DO is
 accompanied by a loss of recombinants.
 
-```{r figure, echo=FALSE, fig.cap="Frequency of a two-locus haplotype being recombinant, as a function of the recombination fraction at meiosis, for the diversity outcross population at $s=5$ (solid curves), heterogeneous stock at $s=10$ (dashed curves) and balanced AIL at $s=12$ (dotted curves), for the autosome (black), male X (blue) and female X (red).  The green dashed curve is the recombinant frequency for HS at $s=10$ assumed in [@Mott2000]"}
-source("Calculations/DOprob.R")
-source("Calculations/AILprob.R")
+```{r figure, fig.height=5, echo=FALSE, fig.cap="Frequency of a two-locus haplotype being recombinant, as a function of the recombination fraction at meiosis, for the diversity outcross population at $s=5$ (solid curves), heterogeneous stock at $s=10$ (dashed curves) and balanced AIL at $s=12$ (dotted curves), for the autosome (black), male X (blue) and female X (red).  The green dashed curve is the recombinant frequency for HS at $s=10$ assumed in [@Mott2000]"}
+source("../Calculations/DOprob.R")
+source("../Calculations/AILprob.R")
 library(ricalc)
 
-dogen <- read.table("Calculations/Fk_distribution.txt", header=TRUE, as.is=TRUE)
+dogen <- read.table("../Calculations/Fk_distribution.txt", header=TRUE, as.is=TRUE)
 dogen[,1] <- as.numeric(substr(dogen[,1], 2, nchar(dogen[,1])))
 dogen[,2] <- dogen[,2]
 
@@ -373,3 +382,5 @@ Jim Crow generously provided comments for improvement of
 the manuscript.
 This work was supported in part by
 National Institutes of Health grant GM074244.
+
+# References

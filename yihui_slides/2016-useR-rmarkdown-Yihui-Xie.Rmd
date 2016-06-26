@@ -1,0 +1,474 @@
+---
+title: "Dynamic Documents with R Markdown"
+author: "Yihui Xie, Karl Broman, and Ian Lyttle"
+date: "2016/06/27 @ Stanford, useR! 2016"
+output:
+  slidy_presentation:
+    self_contained: no
+    lib_dir: libs
+    font_adjustment: "+5"
+---
+
+# Instructors
+
+<!--
+** When you show the slides in your web browser, make sure to zoom in (Command +) and make the font size large enough for the back row to be able to see the text on screen. Same thing for the font size in the RStudio IDE. **
+-->
+
+```{r setup, include=FALSE}
+options(htmltools.dir.version = FALSE)
+```
+
+- Yihui Xie
+    - `@xieyihui` `@rstudio`
+    - cannot make it due to visa issues (looking forward to "Open Countries" like "Open Source")
+    - unless internet connection is too bad or he is too sleepy (12-3am), he will stay online at https://appear.in/yihui and may answer some questions (can also answer short questions on Twitter `#useR2016`)
+- Karl Broman
+    - `@kwbroman`
+- Ian Lyttle
+    - `@ijlyttle`
+
+# Slides and examples
+
+- slides at http://bit.ly/2016rmd
+- examples at https://github.com/ijlyttle/user2016_knitr
+
+# Part I: An introduction to R Markdown
+
+- Pandoc's Markdown syntax, e.g. how to write citations, tables, raw LaTeX/HTML, etc
+- An overview of R Markdown output formats (HTML, PDF, Word, presentations, and so on)
+- How to customize existing output formats
+    - Basic format options, e.g. TOC, numbered/unnumbered sections, etc
+    - Pandoc templates (how to write a template and apply it, how to pass variables to Pandoc templates)
+    - Customize CSS for HTML output
+    - Customize LaTeX preamble for PDF output
+    - Customize Word templates (header/footer, font styles, etc)
+
+# No cut-and-paste
+
+> - If you finished a data analysis project via the cut-and-paste approach in a week, you are likely to do everything manually again for another week in the future, e.g., when the source data has been updated, or a parameter needs to be changed, etc. It is tedious and error-prone to repeat the work (also difficult for others to reproduce the results).
+
+> - ![](gif/repeat-smoke.gif)
+
+# Solution: Automation! Automation! Automation!
+
+<img src="gif/car-transform.gif" width="60%"/>
+
+# Basic ideas of dynamic documents
+
+- Literate Programming (Donald Knuth)
+- code + narratives = report
+- i.e. computing languages + authoring languages
+
+        We built a linear regression model.
+
+        `r ''````{r}
+        fit <- lm(dist ~ speed, data = cars)
+        b   <- coef(fit)
+        plot(fit)
+        `r ''```
+
+        The slope of the regression is `r '\x60r b[1]\x60'`.
+
+<!--
+** In fact, I have used this minimal example for a few years, and one day I suddenly realized I made a mistake here: the slope should be b[2] instead of b[1]. Although it is a little ironic, it is also a good example of why you should generate reports from source code instead of pasting a fixed number. If it is just a fixed number, say, 3.87, it will be difficult to realize that you copied a wrong coefficient. **
+-->
+
+- "dynamic" means the computing/output is dynamic, instead of dynamic content like animations in documents
+
+# Markdown
+
+- A very simple authoring language
+- Yihui's personal award: if you cannot learn the basics of Markdown in X minutes (X >= 5), he will award you X dollars
+- R Markdown cheetsheet: https://www.rstudio.com/resources/cheatsheets/ (you may get some from RStudio's booth)
+
+# Original Markdown
+
+- primarily for HTML
+- paragraphs, `# headers`, `> blockquotes`
+- `**bold**`, `_italic_`
+- `- lists`
+- `[text](url)`
+- `![text](image)`
+- code blocks (indent by four spaces)
+
+# Pandoc's Markdown
+
+<!--
+* Briefly explain the .bib database here for citations.
+* Show different output formats and how to set options by clicking the gear button in RStudio.
+-->
+
+- Markdown extensions
+    - tables
+    - LaTeX math `$\sum_{i=1}^n \alpha_i$` = $\sum_{i=1}^n \alpha_i$
+    - YAML metadata
+    - raw HTML/LaTeX (limitation: raw HTML only works for HTML output, and raw LaTeX only for LaTeX/PDF output)
+
+            <div class="my-class">
+              ![image](url)
+            </div>
+
+            _emphasis_ and \emph{emphasis}
+
+    - footnotes `^[A footnote here.]`
+    - citations `[@joe2014]`
+    - syntax highlighting of code blocks (three backticks followed by the language name, e.g. ```` ```r ````)
+- types of output documents
+    - LaTeX/PDF
+    - beamer
+    - HTML
+    - ioslides
+    - Slidy
+    - reveal.js
+    - Word (MS Word, OpenOffice)
+    - E-books
+    - ...
+- see example pandoc-markdown.Rmd
+
+# The rmarkdown package
+
+- Pandoc is a command-line tool
+- without **rmarkdown**, you have to call **knitr** and Pandoc separately, e.g.
+
+    ```r
+    # in R
+    library(knitr)
+    knit('input.Rmd')  # -> input.md
+    ```
+
+    ```bash
+    # in command line
+    pandoc -t beamer -o output.pdf --smart input.md
+    ```
+
+- Pandoc has more than 70 command line arguments
+- **knitr** has about 50 chunk options
+- **rmarkdown** provides wrappers that produce reasonably beautiful output by default
+    - [Bootstrap](http://getbootstrap.com/) and [themes](http://bootswatch.com/)
+    - highlight.js for syntax highlighting in HTML
+- you can specify a lot of Pandoc and **knitr** options using the R syntax, e.g. Pandoc argument `--toc` corresponds to `toc = TRUE` in **rmarkdown** (similarly, `fig_width = 5` in **rmarkdown** corresponds to `opts_chunk$set(fig.width = 5)` in **knitr**)
+
+# Using rmarkdown
+
+- command-line usage
+
+    ```r
+    library(rmarkdown)
+    render('input.Rmd')
+    render('input.Rmd', pdf_document())
+    render('input.Rmd', word_document())
+    render('input.Rmd', beamer_presentation())
+    render('input.Rmd', ioslides_presentation())
+    ```
+
+- use the RStudio IDE (click the Knit button)
+
+# Basic format options
+
+- table of contents
+- numbered/unnumbered sections
+- self-contained output document
+- global figure width/height
+- two ways to specify options:
+    - YAML metadata in R Markdown documents (recommended)
+
+        ```yaml
+        ---
+        output:
+          html_document:
+            toc: true
+            number_sections: true
+            fig_height: 6
+        ---
+        ```
+
+    - pass to **rmarkdown** output format functions
+
+        ```r
+        rmarkdown::render(
+          'input.Rmd', html_document(
+            toc = TRUE,
+            number_sections = TRUE,
+            fig_height = 6
+          )
+        )
+        ```
+
+# Customize CSS for HTML output
+
+- the appearance of HTML output documents is controlled by CSS (Cascading Style Sheet)
+- you can pass a CSS file to the `css` argument of the output format, e.g.
+
+    ```yaml
+    ---
+    output:
+      html_document:
+        css: my_style.css
+    ---
+    ```
+
+- a simple example of `my_style.css` (change the font size of the second level headers to be 30px)
+
+    ```css
+    h2 {
+      font-size: 30px;
+    }
+    ```
+
+# Customize LaTeX preamble for PDF output
+
+- use the `includes` option to add more stuff to the LaTeX output
+- typically you want to use the sub-option `in_header` to customize the LaTeX preamble, e.g.
+
+    ```yaml
+    ---
+    output:
+      pdf_document:
+        includes:
+          in_header: my_preamble.tex
+    ---
+    ```
+
+- `my_preamble.tex` may load more LaTeX packages, set options, and so on, e.g.
+
+    ```tex
+    \usepackage{booktabs}
+    \usepackage{ctexcap}
+    ```
+
+# Pandoc templates
+
+If none of the existing options can give you the output you desire, you can simply replace the Pandoc template, which allows you to customize everything.
+
+When Pandoc converts Markdown to another output format, it uses a template under the hood (specified via the `--template` option of Pandoc, or `template` argument of most output format functions in **rmarkdown**).
+
+The template is a plain text file that contains some variables of the form `$variable$`. These variables will be replaced by their values generated by Pandoc.
+
+A minimal HTML template:
+
+```html
+<html>
+  <head>
+    <title>$title$</title>
+  </head>
+
+  <body>
+  $body$
+  </body>
+</html>
+```
+
+Variables are typically read from the YAML metadata of the Markdown document, such as `$title$`, e.g.
+
+```yaml
+---
+title: A _Nice_ Markdown Document
+---
+```
+
+The value of a variable can be different for different output formats, e.g. `$title$` is **`A \emph{Nice} Markdown Document`** when the output format is LaTeX, and **`A <em>Nice</em> Markdown Document`** for HTML output.
+
+<!--
+** Open these links, and briefly show what the actual templates look like. **
+-->
+
+- Pandoc's default templates: https://github.com/jgm/pandoc-templates
+- **rmarkdown**'s default templates: https://github.com/rstudio/rmarkdown/tree/master/inst/rmd
+
+
+# Journal articles
+
+- the **rticles** package https://github.com/rstudio/rticles
+- `install.packages('rticles')`
+- different (LaTeX) templates for different journals
+- demo (Journal of Statistical Software)
+
+<!--
+** You can just use the Rmd skeleton that can be created from RStudio's menu: File -> New File -> R Markdown -> From Templates -> Journal of Statistical Software. **
+-->
+
+
+# Customize Word templates
+
+- a Word document is not a plain-text file, so you cannot create a template like most other formats
+- you can still customize the styles of header/footer, font styles, etc, of the Word output
+    1. generate a Word output document from an arbitrary R Markdown document (`output: word_document`);
+    1. open the Word document, and edit the styles in it;
+    1. save the document, and use it as the template for future R Markdown document;
+
+        ```yaml
+        ---
+        output:
+          word_document:
+            reference_docx: my_template.docx
+        ---
+        ```
+
+- see https://vimeo.com/110804387 for a step-by-step video guide
+
+<!--
+** It will be greate if you can do a live demo, but it is fine if you only play this video. **
+-->
+
+
+
+# Part II: New output formats
+
+- A closer look at the structure of an output format object
+    - **knitr** options (chunk options, hooks, etc)
+    - Pandoc options
+    - pre/post-processor functions
+- Examples of new formats, e.g. `html_vignette()` and the **tufte** package (`tufte::tufte_html()`, and `tufte::tufte_handout()`)
+- How to author a long-form document using **bookdown**
+    - Cross-references of figures/tables/sections
+    - Separate HTML pages for chapters
+
+# What is an output format?
+
+Take `html_document()` for example:
+
+```{r comment=''}
+str(rmarkdown::html_document(), 2)
+```
+
+It is a list of **knitr** and Pandoc options, plus some functions (pre/post processors). This list is typically generated by `rmarkdown::output_format()`. Type `rmarkdown::html_document` or `rmarkdown::pdf_document` in the R console, and take a look at the last few lines of the source code.
+
+# Examples of new output formats
+
+- Simple ones (read the R source code):
+    - `rmarkdown::html_vignette`: the key idea is to get rid of the large Bootstrap dependency (`theme = NULL`) to reduce the R package size, then apply a lightweight CSS theme (`vignette.css` in **rmarkdown**) to the HTML output
+    - `rmarkdown::rtf_document`: specify the output format to be `rtf` (`pandoc_options(to = 'rtf')`)
+    - you can use the same idea to write an output format function for EPUB ebooks: just change `rtf` to `epub` or `epub3`, and you may also add more options specific to EPUB (such as the cover image)
+
+<!--
+** The source code of the tufte package may be a little overwhelming for the audience to read line-by-line, and you may only address the post_processor function, e.g. what tufte_html() does is to take the HTML output from Pandoc, parse the figure/table captions, footnotes, and references, modify the HTML to place them in the margin. The modified HTML is written back to the original HTML output file. **
+-->
+- More complicated ones:
+    - the **tufte** package: `tufte::tufte_html`, `tufte::tufte_handout`
+    - source code at https://github.com/rstudio/tufte/
+    - these output format functions are a little hackish: instead of using the public API `rmarkdown::output_format()` to specify the output format, they are based on existing formats `html_document()` and `pdf_document()`, and modify the lists afterwards
+    - `tufte_handout` modified the `plot` chunk hook of **knitr** to support new chunk options `fig.margin = TRUE` and `fig.fullwidth = TRUE`
+    - `tufte_html` applied a new CSS file (`tufte.css`) to the HTML output, and heavily hacked the HTML output using a post-processor to place captions, footnotes and references in the margin
+    - demo http://rstudio.github.io/tufte
+
+        ```r
+        if (!require('tufte')) install.packages('tufte')
+
+        file.edit(
+          system.file(
+            'rmarkdown', 'templates', 'tufte_html', 'skeleton', 'skeleton.Rmd',
+            package = 'tufte'
+          )
+        )
+        ```
+
+<!--
+** Demonstrate both HTML and PDF output. Also show responsiveness of the HTML page. It may be worth showing the source code of some helper functions like tufte::newthought (different output depending on the output format). **
+-->
+
+# bookdown
+
+- process _multiple_ R Markdown documents (e.g. book chapters, course notes, and so on) to HTML/PDF/EPUB
+- source code: https://github.com/rstudio/bookdown (not on CRAN, so `devtools::install_github('rstudio/bookdown')`)
+- documentation: https://bookdown.org
+- you will hear more about it in the talk "Authoring Books with R Markdown" on Thursday
+- the **bookdown** package provided a few new formats:
+    - `gitbook`/`html_book`
+    - `pdf_book`
+    - `epub_book`
+- you may read the source code if you are interested in the implementation, and these formats primarily used a post-processor function to post-process the HTML/LaTeX output to, for example, split the HTML output into multiple pages, number figures/tables, resolve cross-references, and so on
+- no advanced R programming techniques involved -- mostly character string manipulations (`grep()`, `gsub()`, `gregexpr()`, `regmatches()`, ...)
+- demo https://github.com/rstudio/bookdown-demo
+
+# Part III: Other applications
+
+- Build websites
+- Interactive Shiny documents
+- HTML widgets
+- Code chunks of other languages
+
+# Build websites
+
+- render multiple R Markdown documents to a website of multiple pages
+- `rmarkdown::render_site`
+- minimal requirements: `index.(R)md` and `_site.yml`
+- RStudio (currently [preview version](http://www.rstudio.com/products/rstudio/download/preview/), e.g. 0.99.1242) can automatically detect R Markdown website _projects_, and you can use the `Build` button to build the website
+- demo site.Rproj
+
+# Interactive Shiny documents
+
+- you can embed shiny apps in R Markdown
+- write UI/server logic code directly in R code chunks, instead of separate R scripts
+- the output document is essentially a Shiny app, so requires a running R session (unlike typical R Markdown output documents, which are static HTML/PDF files)
+- demo
+
+<!--
+** You can just use the default Shiny document provided in RStudio: File -> New File -> R Markdown -> Shiny. **
+-->
+
+# HTML widgets
+
+- you will learn more about this in Ramnath's talk "htmlwidgets: Power of JavaScript in R" on Tuesday
+- the `inst/htmlwidgets` directory (JS/CSS dependencies) in a package
+    - the YAML spec file
+- R binding `htmlwidgets::createWidget()`
+    - pass data and options from R to the JS side
+    - when rendering a widget in R Markdown, **knitr** will collect the dependency objects, analyze the files required by dependencies, and copy them from packages to the output directory
+    - dependencies are created by `htmltools::htmlDependency()`
+- JS binding (to render the R data)
+
+```js
+HTMLWidgets.widget({
+
+  name: "FOO",
+
+  type: "output",
+
+  initialize: function(el, width, height) {
+    // initialize the element
+  },
+
+  renderValue: function(el, data, instance) {
+    // render the data in el, e.g.
+    // $(el).DataTable(data.options);
+  }
+
+})
+```
+
+- one widget object, works everywhere
+    - R console / RStudio
+    - R Markdown
+    - Shiny
+- http://htmlwidgets.org
+- demo htmlwidgets.Rmd
+<!--
+** This demo requires a bunch of R packages. **
+-->
+
+# Run code from other languages in R Markdown
+
+- although **knitr** was designed primarily for executing R code in dynamic documents, it also has limited support for other languages, such as C, Fortran, C++/Rcpp, Python, and so on
+- instead of ```` ```{r} ````, use ```` ```{lang} ````, where `lang` is the language name (e.g. ```` ```{Rcpp} ````); currently supported languages are
+
+    ```{r R.options=list(width=50)}
+    sort(names(knitr::knit_engines$get()))
+    ```
+
+- they are not as well supported as R; typically these code chunks are executed simply via `system()`, e.g. a Python code chunk **`print(1)`** is executed as **`system("python -c 'print(1)'")`** in R, and the text output (as side effects) is collected
+
+<!--
+** You may briefly demo, e.g. ```{python}
+Plenty of examples at https://github.com/yihui/knitr-examples/ (search for "engine" in the list) **
+-->
+
+# Summary
+
+- dynamic documents make it easier to repeat/reproduce your data analysis
+- Markdown is simple, and Pandoc added a lot of useful features
+- rmarkdown provided a few basic output formats based on Pandoc, and is also extensible (change options, create templates, build new formats, etc)
+- there are some existing rmarkdown extensions, e.g. **rticles**, **bookdown**, **tufte**, ...
+- you can build websites, render HTML widgets, embed Shiny applications, and execute code of other languages in R Markdown
+- if you have questions, please consider asking on StackOverflow: http://stackoverflow.com/tags/rmarkdown; for bug reports and feature requests, use Github issues https://github.com/rstudio/rmarkdown/issues
+- if there is one thing to take home from this tutorial, it is the URL http://rmarkdown.rstudio.com

@@ -4,14 +4,6 @@ title: "Introduction"
 
 * First and foremost, refer to http://rmarkdown.rstudio.com/
 
-* The format I (Ian) use the most is `html_document()`.
-
-* Uses bootstrap, which opens up a lot of possibilities.
-  
-* However, there are cases where you may want or need to be a bit more-specialized.
-
-* Looking at the source code for these can give you inspiration on how to make your own formats. 
-
 ## Output formats
 
 This is the set of instructions that tells `render()` what to do with the Rmd file sent to it. We'll get a feel for how it works by looking at a few examples. 
@@ -25,6 +17,7 @@ The biggest use case for this is when you are writing a package. The CRAN folks 
 If you use this, chances are you will use the devtools function `use_vignette()`.
 
 ```{r eval=FALSE}
+# install.packages("devtools")
 use_vignette("fiddly_bits")
 ```
 
@@ -43,5 +36,9 @@ Look at (http://rstudio.github.io/tufte/)
 Bring up (https://twitter.com/hadleywickham/status/715974377741811713).
 
 Have a look at the [bookdown site](https://bookdown.org/).
+
+### Make our own formats
+
+Time permitting, we will create our own document formats.
 
 

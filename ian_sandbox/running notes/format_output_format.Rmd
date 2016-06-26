@@ -39,12 +39,13 @@ pdf_document
 
 Looking near the bottom of the source code, what differences to you see? what seems the same?
 
+A common thing is these functions all call `rmarkdown::output_format()`, all return an `rmarkdown_output_format` object.
 
 ### Others
 
-Examine source for:
+Examine source for: (maybe have the github pages handy)
 
-* `rmarkdown::html_vignette`
+* `rmarkdown::html_vignette` 
 * `rmarkdown::rtf_document`
 * `tufte::tufte_html`
 * `tufte::tufte_handout`
@@ -56,7 +57,5 @@ Check out http://rmarkdown.rstudio.com
 ### Conclusion
 
 If you provide a function that returns an `rmarkdown_output_format` object, you have a custom format.
-
-If time, make a new package and demonstrate.
 
 

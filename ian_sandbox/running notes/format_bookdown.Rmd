@@ -6,19 +6,13 @@ Download with the demo:
 
 https://github.com/rstudio/bookdown-demo
 
-```
+```{r eval=FALSE}
 install_github("rstudio/bookdown")
 ```
 
-Clone it and start fiddling around.
+Download it and start fiddling around. Show how adding a new chapter is a matter of creating a new Rmd file (use number as a way to assemble chapters in correct order).
 
-There are three crucial files:
+Show the source code for gitbook.
 
-* `index.Rmd` (section 1.3)
-    - this can have a yml block to describe options for the whole book
-    - alternatively, can specify in `_output.yml` (Chapter 3)
-* `_bookdown.yml` (section 1.4)
-    - other configuration information
-
-One way to name the following chapters is to use leading digits, i.e. `01-introduction`.
+Remind of Hadley's presentation on Thursday.
 

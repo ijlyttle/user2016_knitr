@@ -341,11 +341,7 @@ div.tocify {
 
 
 <ul>
-<li><p>First and foremost, refer to <a href="http://rmarkdown.rstudio.com/" class="uri">http://rmarkdown.rstudio.com/</a></p></li>
-<li><p>The format I (Ian) use the most is <code>html_document()</code>.</p></li>
-<li><p>Uses bootstrap, which opens up a lot of possibilities.</p></li>
-<li><p>However, there are cases where you may want or need to be a bit more-specialized.</p></li>
-<li><p>Looking at the source code for these can give you inspiration on how to make your own formats.</p></li>
+<li>First and foremost, refer to <a href="http://rmarkdown.rstudio.com/" class="uri">http://rmarkdown.rstudio.com/</a></li>
 </ul>
 <div id="output-formats" class="section level2">
 <h2>Output formats</h2>
@@ -355,7 +351,8 @@ div.tocify {
 <h3>HTML vignette</h3>
 <p>The biggest use case for this is when you are writing a package. The CRAN folks like things to be lightweight.</p>
 <p>If you use this, chances are you will use the devtools function <code>use_vignette()</code>.</p>
-<pre class="r"><code>use_vignette(&quot;fiddly_bits&quot;)</code></pre>
+<pre class="r"><code># install.packages(&quot;devtools&quot;)
+use_vignette(&quot;fiddly_bits&quot;)</code></pre>
 </div>
 <div id="tufte" class="section level3">
 <h3>Tufte</h3>
@@ -367,6 +364,10 @@ div.tocify {
 <h3>bookdown</h3>
 <p>Bring up (<a href="https://twitter.com/hadleywickham/status/715974377741811713" class="uri">https://twitter.com/hadleywickham/status/715974377741811713</a>).</p>
 <p>Have a look at the <a href="https://bookdown.org/">bookdown site</a>.</p>
+</div>
+<div id="make-our-own-formats" class="section level3">
+<h3>Make our own formats</h3>
+<p>Time permitting, we will create our own document formats.</p>
 </div>
 </div>
 

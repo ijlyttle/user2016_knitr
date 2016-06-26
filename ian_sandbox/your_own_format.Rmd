@@ -3,12 +3,12 @@ title: "Demo of different formats"
 author: "Ian Lyttle"
 date: "June 26, 2016"
 output:
-  user2016format::html_doc_3: default
-  user2016format::html_doc_0: default
-  user2016format::html_doc_1:
-    css: temp.css
+  user2016docdemo::html_doc_4: default
+  user2016docdemo::html_doc_0: default
+  user2016docdemo::html_doc_1:
     default: null
-  user2016format::html_doc_2: default
+  user2016docdemo::html_doc_2: default
+  user2016docdemo::html_doc_3: default
   html_document: default
 ---
 

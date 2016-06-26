@@ -361,9 +361,10 @@ fmt_pdf_document &lt;- pdf_document()</code></pre>
 
 pdf_document</code></pre>
 <p>Looking near the bottom of the source code, what differences to you see? what seems the same?</p>
+<p>A common thing is these functions all call <code>rmarkdown::output_format()</code>, all return an <code>rmarkdown_output_format</code> object.</p>
 <div id="others" class="section level3">
 <h3>Others</h3>
-<p>Examine source for:</p>
+<p>Examine source for: (maybe have the github pages handy)</p>
 <ul>
 <li><code>rmarkdown::html_vignette</code></li>
 <li><code>rmarkdown::rtf_document</code></li>
@@ -378,7 +379,6 @@ pdf_document</code></pre>
 <div id="conclusion" class="section level3">
 <h3>Conclusion</h3>
 <p>If you provide a function that returns an <code>rmarkdown_output_format</code> object, you have a custom format.</p>
-<p>If time, make a new package and demonstrate.</p>
 </div>
 
 

@@ -70,6 +70,10 @@ options(htmltools.dir.version = FALSE)
 
         The slope of the regression is `r '\x60r b[1]\x60'`.
 
+<!--
+** In fact, I have used this minimal example for a few years, and one day I suddenly realized I made a mistake here: the slope should be b[2] instead of b[1]. Although it is a little ironic, it is also a good example of why you should generate reports from source code instead of pasting a fixed number. If it is just a fixed number, say, 3.87, it will be difficult to realize that you copied a wrong coefficient. **
+-->
+
 - "dynamic" means the computing/output is dynamic, instead of dynamic content like animations in documents
 
 # Markdown

@@ -1,0 +1,7 @@
+---
+title: Notes on Yihui's notes
+runtime: shiny
+---
+
+This will be a way for me to capture my questions, and possibly insights as I bash my way through Yihui's presentation.
+

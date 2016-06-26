@@ -2,7 +2,7 @@
 title: Shiny
 ---
 
-Use File > New > RMarkdown > Shiny 
+Demo by using File > New > RMarkdown > Shiny 
 
 Can mix shiny and websites - copy this to a new directory and put `runtime: shiny` into each Rmd's yml. Then take out `self-contained` and `lib_dir` from `html_document:`
 
@@ -10,3 +10,6 @@ Knit button turns into a run app button, uses shiny on local computer.
 
 Can deploy site to shinyapps.io as an app. (at least you could in 2014)
 
+## Note
+
+Make a test deployment to shinyapps on Sunday - just to be sure.

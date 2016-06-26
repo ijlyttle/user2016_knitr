@@ -1,0 +1,19 @@
+---
+title: "Bookdown"
+runtime: shiny
+---
+
+Download with the demo:
+
+https://github.com/rstudio/bookdown-demo
+
+```{r eval=FALSE}
+install_github("rstudio/bookdown")
+```
+
+Download it and start fiddling around. Show how adding a new chapter is a matter of creating a new Rmd file (use number as a way to assemble chapters in correct order).
+
+Show the source code for gitbook.
+
+Remind of Hadley's presentation on Thursday.
+

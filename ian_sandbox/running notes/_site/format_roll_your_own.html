@@ -301,6 +301,9 @@ div.tocify {
     <li>
       <a href="format_bookdown.html">Bookdown</a>
     </li>
+    <li>
+      <a href="format_roll_your_own.html">Roll your own</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -340,7 +343,21 @@ div.tocify {
 </div>
 
 
-
+<p>If we have time, we can make our own formats using format functions.</p>
+<p>One trick is that custom-format functions need to be kept in a package</p>
+<p>Luckily, Hadley pubished his book on making packages, so we’ll use it here.</p>
+<p>Here’s the repository - you may want to clone.</p>
+<p>If you just want to install the package:</p>
+<pre class="r"><code>install_github(&quot;ijlyttle/user2016docdemo&quot;)</code></pre>
+<p>Our custom formats:</p>
+<ul>
+<li><code>html_doc_0</code> simple passthrough to <code>rmarkdown::html_document()</code></li>
+<li><code>html_doc_1</code> changes the default on <code>code_folding</code> to <code>show</code></li>
+<li>add <code>css: h1_font.css</code> to yml</li>
+<li><code>html_doc_2</code> adds css to make an improvement to the title font</li>
+<li><code>html_doc_3</code> adds css generated using <a href="http://bootstrap-live-customizer.com/" class="uri">http://bootstrap-live-customizer.com/</a></li>
+<li><code>html_doc_4</code> leave this one for later</li>
+</ul>
 
 
 

@@ -301,6 +301,9 @@ div.tocify {
     <li>
       <a href="format_bookdown.html">Bookdown</a>
     </li>
+    <li>
+      <a href="format_roll_your_own.html">Roll your own</a>
+    </li>
   </ul>
 </li>
 <li class="dropdown">
@@ -340,6 +343,22 @@ div.tocify {
 </div>
 
 
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
+<p>Websites can be a great way to collect parts of a report or an investigation - show Lexington.</p>
+<div id="some-lessons-learned-along-the-way" class="section level3">
+<h3>Some lessons learned along the way:</h3>
+</div>
+</div>
+<div id="advice" class="section level2">
+<h2>Advice</h2>
+<p>Usual helpful and timely advice from Jenny Bryan:</p>
+<p><a href="https://twitter.com/JennyBryan/status/746855616849731584" class="uri">https://twitter.com/JennyBryan/status/746855616849731584</a></p>
+<p><a href="http://stat545.com/block007_first-use-rmarkdown.html" class="uri">http://stat545.com/block007_first-use-rmarkdown.html</a></p>
+<p>Great stuff here, on particularly on troubleshooting.</p>
+<p>The rprojroot package is your friend. Show this a little bit.</p>
+<p>No hard paths. Ever.</p>
+</div>
 <div id="configuration" class="section level2">
 <h2>Configuration</h2>
 <p>The first thing to remind myself of - the minimal set for <code>rmarkdown::render_site()</code> to work is:</p>
@@ -368,21 +387,9 @@ div.tocify {
 <p>When deploying your site keep in mind if you are using gh-pages or are using something else.</p>
 <p>If <code>gh-pages</code>, use <code>output_dir: &quot;.&quot;</code>, put in <code>.nojekyll</code>. If not, use <code>output_dir: _site</code>.</p>
 </div>
-<div id="advice" class="section level2">
-<h2>Advice</h2>
-<p>Usual helpful and timely advice from Jenny Bryan:</p>
-<p><a href="https://twitter.com/JennyBryan/status/746855616849731584" class="uri">https://twitter.com/JennyBryan/status/746855616849731584</a></p>
-<p><a href="http://stat545.com/block007_first-use-rmarkdown.html" class="uri">http://stat545.com/block007_first-use-rmarkdown.html</a></p>
-<p>Great stuff here, on particularly on troubleshooting.</p>
-<p>The rprojroot package is your friend.</p>
-</div>
-<div id="demo" class="section level2">
-<h2>Demo?</h2>
-<p>Maybe show the SE “Dryer Data” work as a sample.</p>
-</div>
 <div id="question" class="section level2">
 <h2>Question</h2>
-<p>Can we create dependencies between Rmd files and data? Gotta find a better way to put this.</p>
+<p>Can we create dependencies between Rmd files and data? Is there a way to manage this?</p>
 </div>
 
 

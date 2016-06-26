@@ -13,6 +13,8 @@ navbar:
           href: format_output_format.html
         - text: "Bookdown"
           href: format_bookdown.html
+        - text: "Roll your own"
+          href: format_roll_your_own.html
     - text: "Other Applications"
       menu:
         - text: "Websites"

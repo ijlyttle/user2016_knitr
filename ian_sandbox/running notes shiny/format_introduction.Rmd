@@ -1,0 +1,45 @@
+---
+title: "Introduction"
+runtime: shiny
+---
+
+* First and foremost, refer to http://rmarkdown.rstudio.com/
+
+## Output formats
+
+This is the set of instructions that tells `render()` what to do with the Rmd file sent to it. We'll get a feel for how it works by looking at a few examples. 
+
+Go through `five_minute_test.Rmd`.
+  
+### HTML vignette
+
+The biggest use case for this is when you are writing a package. The CRAN folks like things to be lightweight.
+
+If you use this, chances are you will use the devtools function `use_vignette()`.
+
+```{r eval=FALSE}
+# install.packages("devtools")
+use_vignette("fiddly_bits")
+```
+
+### Tufte
+
+```{r}
+# install.packages("tufte")
+```
+
+Provides functions that give html (`tufte_html()`) and pdf (`tufte_handout()`)
+
+Look at (http://rstudio.github.io/tufte/)
+
+### bookdown
+
+Bring up (https://twitter.com/hadleywickham/status/715974377741811713).
+
+Have a look at the [bookdown site](https://bookdown.org/).
+
+### Make our own formats
+
+Time permitting, we will create our own document formats.
+
+

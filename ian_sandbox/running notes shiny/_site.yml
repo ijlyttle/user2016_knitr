@@ -1,0 +1,27 @@
+name: running-notes
+output_dir: _site
+navbar:
+  title: "Annotations to Yihui's presentation"
+  right:
+    - text: "Introduction"
+      href: intro.Rmd
+    - text: "New Output Formats"
+      menu:
+        - text: "Introduction"
+          href: format_introduction.Rmd
+        - text: "Output format"
+          href: format_output_format.Rmd
+        - text: "Bookdown"
+          href: format_bookdown.Rmd
+        - text: "Roll your own"
+          href: format_roll_your_own.Rmd
+    - text: "Other Applications"
+      menu:
+        - text: "Websites"
+          href: other_websites.Rmd
+        - text: "Shiny"
+          href: other_shiny.Rmd
+output:
+  user2016docdemo::html_doc_4
+
+

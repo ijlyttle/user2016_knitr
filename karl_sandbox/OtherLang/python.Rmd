@@ -1,0 +1,36 @@
+---
+title: "python"
+author: "Karl Broman"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+Download fruit snacks data to a file.
+
+```{python download_data}
+import urllib.request
+
+url = "https://raw.githubusercontent.com/kbroman/FruitSnacks/master/Data/fruit_snacks.csv"
+file = "fruit_snacks.csv"
+
+with urllib.request.urlopen(url) as response, open(file, "wb") as ofp:
+    data = response.read()
+    ofp.write(data)
+```
+
+Read the file and print a couple of things.  Note that each python
+code chunk is a separate process, with no shared information.
+
+```{python read_file}
+file = "fruit_snacks.csv"
+with open(file) as fp:
+    header = fp.readline().strip().split(',')
+
+    x = []
+    for line in fp:
+        v = line.strip().split(',')
+        x.append(v)
+
+print("column names:   " + " ".join(header))
+print("number of rows: " + str(len(x)))
+````

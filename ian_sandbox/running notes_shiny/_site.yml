@@ -1,0 +1,25 @@
+navbar:
+  title: "Annotations to Yihui's presentation"
+  right:
+    - text: "Introduction"
+      href: intro.Rmd
+    - text: "New Output Formats"
+      menu:
+        - text: "Introduction"
+          href: format_introduction.Rmd
+        - text: "Output format"
+          href: format_output_format.Rmd
+        - text: "Bookdown"
+          href: format_bookdown.Rmd
+    - text: "Other Applications"
+      menu:
+        - text: "Shiny"
+          href: other_shiny.Rmd
+runtime: shiny
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: show
+    theme: readable
+    highlight: textmate

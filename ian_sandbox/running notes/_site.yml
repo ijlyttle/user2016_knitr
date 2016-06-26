@@ -7,13 +7,24 @@ navbar:
       href: intro.html
     - text: "New Output Formats"
       menu:
+        - text: "Introduction"
+          href: format_introduction.html
         - text: "Output format"
           href: format_output_format.html
+        - text: "Bookdown"
+          href: format_bookdown.html
     - text: "Other Applications"
       menu:
+        - text: "Websites"
+          href: other_websites.html
         - text: "Shiny"
           href: other_shiny.html
 output:
   html_document:
+    self_contained: false
+    lib_dir: site_libs
+    toc: true
+    toc_float: true
+    code_folding: show
     theme: readable
     highlight: textmate

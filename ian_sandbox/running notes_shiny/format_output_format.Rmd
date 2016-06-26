@@ -1,0 +1,63 @@
+---
+title: "Output formats"
+runtime: shiny
+---
+
+Remember slide 11?
+
+```{r eval=FALSE}
+library(rmarkdown)
+render('input.Rmd')
+render('input.Rmd', pdf_document())
+render('input.Rmd', word_document())
+render('input.Rmd', beamer_presentation())
+render('input.Rmd', ioslides_presentation())
+```
+
+To render a document, we need a source (`'input.Rmd'`) and a set of instructions on what to do with it (for example, `pdf_document()`.)
+
+Look again at `five_minute_test.Rmd`. The thing we provide after `output:` is simply the name of the function to use when running `render()`.
+
+Here are some things you can try. Using the environment window in the RStudio IDE, look at how the structure changes.
+
+```{r eval=FALSE}
+library("rmarkdown")
+fmt_html_document <- html_document() 
+fmt_html_document <- html_document(fig_width = 3)
+
+fmt_pdf_document <- pdf_document()
+```
+
+Each of these is an `rmarkdown_output_format` generated using `rmarkdown::output_format()`.
+
+Now, let's look at some of the source code. Try this:
+
+```{r eval=FALSE}
+html_document
+
+pdf_document
+```
+
+Looking near the bottom of the source code, what differences to you see? what seems the same?
+
+
+### Others
+
+Examine source for:
+
+* `rmarkdown::html_vignette`
+* `rmarkdown::rtf_document`
+* `tufte::tufte_html`
+* `tufte::tufte_handout`
+
+### What's already available
+
+Check out http://rmarkdown.rstudio.com
+
+### Conclusion
+
+If you provide a function that returns an `rmarkdown_output_format` object, you have a custom format.
+
+If time, make a new package and demonstrate.
+
+

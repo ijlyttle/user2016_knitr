@@ -1,0 +1,13 @@
+---
+title: Shiny
+runtime: shiny
+---
+
+Here goes!
+
+```{r}
+# devtools::install_github("rstudio/rmdexamples")
+library("rmdexamples")
+
+kmeans_cluster(iris)
+```

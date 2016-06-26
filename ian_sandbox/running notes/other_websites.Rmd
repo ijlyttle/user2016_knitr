@@ -1,0 +1,61 @@
+---
+title: Websites
+---
+
+## Configuration
+
+The first thing to remind myself of - the minimal set for `rmarkdown::render_site()` to work is:
+
+* a `_site.yml` file
+* an `index.(R)md` file
+
+It would be a neat exercise to have someone in suggest a theme from [Bootswatch](http://bootswatch.com/).
+
+In `_site.yml` The stuff you can put into yml underneath `html_document:` corresponds to arguments made to `rmarkdown::html_document()`.
+
+Good idea to add:
+
+```
+  html_document:
+    self_contained: false
+    lib_dir: site_libs
+```
+
+## New page
+
+1. Create `new_page.Rmd` (I like to use new text file)
+
+2. Put in title yml
+
+3. Add to the navbar.
+
+4. Create the content.
+
+## Deployment
+
+When deploying your site keep in mind if you are using gh-pages or are using something else.
+
+If `gh-pages`, use `output_dir: "."`, put in `.nojekyll`. If not, use `output_dir: _site`.
+
+## Advice
+
+Usual helpful and timely advice from Jenny Bryan:
+
+https://twitter.com/JennyBryan/status/746855616849731584
+
+http://stat545.com/block007_first-use-rmarkdown.html
+
+Great stuff here, on particularly on troubleshooting.
+
+The rprojroot package is your friend.
+
+## Demo?
+
+Maybe show the SE "Dryer Data" work as a sample.
+
+## Question 
+
+Can we create dependencies between Rmd files and data? Gotta find a better way to put this.
+
+
+

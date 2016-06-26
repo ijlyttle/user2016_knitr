@@ -1,0 +1,13 @@
+---
+title: Notes on Yihui's notes
+runtime: shiny
+---
+
+This will be a way for me to capture my questions, and possibly insights as I bash my way through Yihui's presentation.
+
+The first thing to remind myself of - the minimal set for `rmarkdown::render_site()` to work is:
+
+* a `_site.yml` file
+* an `index.(R)md` file
+
+It would be a neat exercise to have someone in the class suggest a theme from [Bootswatch](http://bootswatch.com/).

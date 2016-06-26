@@ -1,0 +1,24 @@
+---
+title: "Bookdown"
+---
+
+Download with the demo:
+
+https://github.com/rstudio/bookdown-demo
+
+```
+install_github("rstudio/bookdown")
+```
+
+Clone it and start fiddling around.
+
+There are three crucial files:
+
+* `index.Rmd` (section 1.3)
+    - this can have a yml block to describe options for the whole book
+    - alternatively, can specify in `_output.yml` (Chapter 3)
+* `_bookdown.yml` (section 1.4)
+    - other configuration information
+
+One way to name the following chapters is to use leading digits, i.e. `01-introduction`.
+

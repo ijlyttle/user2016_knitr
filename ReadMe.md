@@ -1,7 +1,7 @@
 ## Outline for Knitr tutorial at UseR 2016
 
 See [Etherpad](https://public.etherpad-mozilla.org/p/user2016_knitr)
-for notes during the utorial, or to ask questions.
+for notes during the tutorial, or to ask questions.
 
 ### Part 1: An intro to R Markdown
 

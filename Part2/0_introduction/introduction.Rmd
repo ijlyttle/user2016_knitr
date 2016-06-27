@@ -1,5 +1,9 @@
 ---
 title: "Introduction"
+output:
+  rmarkdown::html_vignette: default
+  html_document: default
+  tufte::tufte_html: default
 ---
 
 * First and foremost, refer to http://rmarkdown.rstudio.com/
@@ -8,8 +12,6 @@ title: "Introduction"
 
 This is the set of instructions that tells `render()` what to do with the Rmd file sent to it. We'll get a feel for how it works by looking at a few examples. 
 
-Go through `five_minute_test.Rmd`.
-  
 ### HTML vignette
 
 The biggest use case for this is when you are writing a package. The CRAN folks like things to be lightweight.

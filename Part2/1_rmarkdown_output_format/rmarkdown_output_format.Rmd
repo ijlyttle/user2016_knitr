@@ -1,0 +1,54 @@
+---
+title: "rmarkdown output format"
+output: html_document
+---
+
+Here are some examples from the slides on using `render()`:
+
+```{r eval=FALSE}
+library(rmarkdown)
+render('input.Rmd')
+render('input.Rmd', pdf_document())
+render('input.Rmd', word_document())
+render('input.Rmd', beamer_presentation())
+render('input.Rmd', ioslides_presentation())
+```
+
+The two arguments are the thing to render, and a set of instructions on how to render it.
+
+## `rmarkdown_output_format` objects
+
+The each of the functions returns an object `rmarkdown_output_format`:
+
+```{r}
+library("rmarkdown")
+fmt_html_document <- html_document() 
+fmt_html_document2 <- html_document(fig_width = 3)
+
+fmt_pdf_document <- pdf_document()
+```
+
+We can compare and contrast these objects:
+
+```{r}
+str(fmt_html_document)
+```
+
+```{r}
+str(fmt_html_document2)
+```
+
+```{r}
+str(fmt_pdf_document)
+```
+
+## Functions that return `rmarkdown_output_format` objects
+
+Here are some links to the source code for some instructive cases:
+
+* [rmarkdown::html_vignette](https://github.com/rstudio/rmarkdown/blob/master/R/html_vignette.R) This is a straightfoward extension to `html_document()`
+* [rmarkdown::rtf_document](https://github.com/rstudio/rmarkdown/blob/master/R/rtf_document.R) Check out the pandoc options.
+* [tufte::tufte_html](https://github.com/rstudio/tufte/blob/master/R/html.R), [tufte::tufte_handout](https://github.com/rstudio/tufte/blob/master/R/handout.R) These do not use the API, but modify the object after it has been generated.
+
+
+

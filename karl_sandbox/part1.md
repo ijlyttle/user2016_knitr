@@ -1,18 +1,21 @@
 # Part 1:
 
 1. About Yihui...
-   slides: http://bit.ly/2016rmd
-   examples: https://github.com/ijlyttle/user2016_knitr
+
+   - slides: http://bit.ly/2016rmd
+   - examples: https://github.com/ijlyttle/user2016_knitr
+   - etherpad: http://bit.ly/user2016_knitr
 
 2. Intermediate R Markdown: assuming you've used Rmd and knitr for
    some basic reports
 
    If not, this is probably not the best tutorial for you.
 
-   current version of RStudio and R
-   LaTeX installation (MacTex; windows version)
-   install.packages("devtools")
-   download the git repo as a zip file
+   - current version of RStudio and R
+   - LaTeX installation ([MacTex](https://tug.org/mactex/) for Mac;
+     [MiKTeX](http://miktex.org/download) for Windows)
+   - `install.packages("devtools")`
+   - download the [git repo](https://github.com/ijlyttle/user2016_knitr) as a zip file
 
 3. Reminder about literate programming and Markdown
 

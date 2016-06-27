@@ -1,0 +1,15 @@
+name: hello-world
+output_dir: _site
+navbar:
+  title: "My Website"
+  left:
+    - text: "Home"
+      href: index.Rmd
+    - text: "About"
+      href: about.Rmd
+    - text: "Shiny Demo"
+      href: shiny_demo.Rmd
+output:
+  html_document:
+    toc: true
+    highlight: textmate

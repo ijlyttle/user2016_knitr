@@ -1,0 +1,8 @@
+---
+title: "About"
+runtime: shiny
+---
+
+This is a website generated using Shiny - it is a bit slower than html, as every page served is "fresh-baked".
+
+It can run locally on a computer that has R and Shiny, or it can be delpoyed to a Shiny Server.

@@ -28,6 +28,7 @@
    - tables
    - footnotes
    - citations (look at bibtex file + pandoc-based citations)
+   - superscripts
 
 2. R Markdown output formats
 
@@ -59,7 +60,7 @@
        (style on right)
      - find `default.css` in ioslides template
 
-5. Customize LaTeX preample for PDF output
+5. Customize LaTeX preamble for PDF output
 
    [AILprob paper]
 
@@ -67,6 +68,9 @@
    - Use LateX preamble to add line numbers and make double-spaced
      (also section headings with sans serif font)
    - use LateX template to deal with author name/institution separately
+     - refer to
+       [pandoc templates](https://github.com/jgm/pandoc-templates) and
+       [rmarkdown templates](https://github.com/rstudio/rmarkdown/tree/master/inst/rmd)
    - Show how to use rticles package
      - `install.packages("rticles")`
      - File → New File → R Markdown → From Template

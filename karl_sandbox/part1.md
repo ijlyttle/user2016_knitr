@@ -4,6 +4,7 @@
 
    - slides: http://bit.ly/2016rmd
    - examples: https://github.com/ijlyttle/user2016_knitr
+   - etherpad: http://bit.ly/user2016_knitr
 
 2. Intermediate R Markdown: assuming you've used Rmd and knitr for
    some basic reports

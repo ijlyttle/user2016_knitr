@@ -1,0 +1,24 @@
+---
+title: "Roll your own"
+output:
+  html_document: default
+  user2016docdemo::html_doc_0: default
+  user2016docdemo::html_doc_1: default
+---
+
+```{r eval=FALSE}
+# install.packages("devtools")
+install_github("ijlyttle/user2016docdemo")
+```
+
+[Useful reference](http://rmarkdown.rstudio.com/developer_custom_formats.html) for developing custom-output functions.
+
+## Trivial case
+
+In [`html_doc_0()`](https://github.com/ijlyttle/user2016docdemo/blob/master/R/html_doc_0.R) we simply extend the `html_document()` function without doing anything.
+
+## Almost-trivial case
+
+In [`html_doc_1()`](https://github.com/ijlyttle/user2016docdemo/blob/master/R/html_doc_1.R) we simply extend the `html_document()`, but specify a theme and code-folding.
+
+

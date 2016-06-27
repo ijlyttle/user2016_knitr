@@ -27,10 +27,7 @@
    - raw HTML/LaTeX
    - tables
    - footnotes
-   - citations
-
-  [example: yihui's pandoc-markdown.Rmd; particularly discuss the bibtex file and pandoc-based citations]
-
+   - citations (look at bibtex file + pandoc-based citations)
 
 2. R Markdown output formats
 
@@ -43,12 +40,12 @@
    [Fruit snacks example]
 
    - try the little gear in R Markdown
+   - `toc: yes`
    - look at help file for rmarkdown::html_document
-
-   - toc: yes
-   - number_sections: yes
-   - self_contained: yes [emphasize importance for talks]
-   - code_folding: "hide" (and remove "echo=FALSE")
+   - `toc_float: yes`
+   - `number_sections: yes`
+   - `self_contained: yes` [emphasize importance for talks]
+   - `code_folding: "hide"` (and remove `"echo=FALSE"`)
 
 4. Customize CSS for HTML output
 
@@ -70,11 +67,17 @@
    - Use LateX preamble to add line numbers and make double-spaced
      (also section headings with sans serif font)
    - use LateX template to deal with author name/institution separately
-
-6. Journal articles: rticles package
-
-   - use JSS template for the AIL prob paper
+   - Show how to use rticles package
+     - `install.packages("rticles")`
+     - File → New File → R Markdown → From Template
+     - Give it a name; a directory will be created
+     - Edit stuff
+   - Show pre-constructed `rticles` example
 
 7. Customize word template
 
    - Customize Word templates (header/footer, font styles, ...)
+   - Use basic `word_document` and knit to create `.doc` file
+   - Open in word, change various styles
+   - Save this as a file with some different name
+   - Modify the YAML header

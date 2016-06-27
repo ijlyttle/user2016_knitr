@@ -1,0 +1,29 @@
+---
+title: bookdown innards
+output: html_document
+---
+
+The point here is to leave some links:
+
+## What it does
+
+Start by downloading the [demo](https://github.com/rstudio/bookdown-demo) and installing the bookdown package:
+
+```{r eval=FALSE}
+# install.packages("devtools")
+install_github("rstudio/bookdown")
+```
+
+Look at the chapter numbering system and the convention for starting a new chapter (including label/references)
+
+```
+# Introduction {#intro}
+
+Here we introduce some crucially important topics...
+```
+
+## How it does it
+
+Have a look at the [source code](https://github.com/rstudio/bookdown/blob/master/R/gitbook.R) for the gitbook() function. You will see code to post-proceess the HTML to split into multiple pages, do the numbering and resolve cross-references, etc.
+
+

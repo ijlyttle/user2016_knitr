@@ -101,9 +101,9 @@ options(htmltools.dir.version = FALSE)
 -->
 
 - Markdown extensions
-    - tables
-    - LaTeX math `$\sum_{i=1}^n \alpha_i$` = $\sum_{i=1}^n \alpha_i$
     - YAML metadata
+    - LaTeX math `$\sum_{i=1}^n \alpha_i$` = $\sum_{i=1}^n \alpha_i$
+    - syntax highlighting of code blocks (three backticks followed by the language name, e.g. ```` ```r ````)
     - raw HTML/LaTeX (limitation: raw HTML only works for HTML output, and raw LaTeX only for LaTeX/PDF output)
 
             <div class="my-class">
@@ -112,17 +112,12 @@ options(htmltools.dir.version = FALSE)
 
             _emphasis_ and \emph{emphasis}
 
+    - tables
     - footnotes `^[A footnote here.]`
     - citations `[@joe2014]`
-    - syntax highlighting of code blocks (three backticks followed by the language name, e.g. ```` ```r ````)
 - types of output documents
-    - LaTeX/PDF
-    - beamer
-    - HTML
-    - ioslides
-    - Slidy
-    - reveal.js
-    - Word (MS Word, OpenOffice)
+    - LaTeX/PDF, HTML, Word (MS Word, OpenOffice)
+    - beamer, ioslides, Slidy, reveal.js
     - E-books
     - ...
 - see example pandoc-markdown.Rmd

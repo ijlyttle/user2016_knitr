@@ -9,6 +9,11 @@
 
    If not, this is probably not the best tutorial for you.
 
+   current version of RStudio and R
+   LaTeX installation (MacTex; windows version)
+   install.packages("devtools")
+   download the git repo as a zip file
+
 3. Reminder about literate programming and Markdown
 
 4. Pandoc markdown

@@ -32,6 +32,7 @@ options(htmltools.dir.version = FALSE)
 
 - slides at http://bit.ly/2016rmd
 - examples at https://github.com/ijlyttle/user2016_knitr
+- etherpad at https://public.etherpad-mozilla.org/p/user2016_knitr
 
 # Part I: An introduction to R Markdown
 
@@ -80,7 +81,7 @@ options(htmltools.dir.version = FALSE)
 
 - A very simple authoring language
 - Yihui's personal award: if you cannot learn the basics of Markdown in X minutes (X >= 5), he will award you X dollars
-- R Markdown cheetsheet: https://www.rstudio.com/resources/cheatsheets/ (you may get some from RStudio's booth)
+- R Markdown cheatsheet: https://www.rstudio.com/resources/cheatsheets/ (you may get some from RStudio's booth)
 
 # Original Markdown
 
@@ -308,7 +309,7 @@ The value of a variable can be different for different output formats, e.g. `$ti
 - see https://vimeo.com/110804387 for a step-by-step video guide
 
 <!--
-** It will be greate if you can do a live demo, but it is fine if you only play this video. **
+** It will be great if you can do a live demo, but it is fine if you only play this video. **
 -->
 
 

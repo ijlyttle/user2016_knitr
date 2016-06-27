@@ -1,0 +1,59 @@
+---
+title: "C++"
+author: "Karl Broman"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+C++ code to count the number of mismatches between rows of a matrix.
+
+```{Rcpp compare_rows}
+#include <Rcpp.h>
+using namespace Rcpp;
+
+// [[Rcpp::export]]
+NumericMatrix compare_rows(IntegerMatrix x)
+{
+    int n = x.rows();
+    int p = x.cols();
+    NumericMatrix result(n,n);
+
+    for(int k=0; k<p; k++) { // loop over columns
+        for(int i=0; i<n; i++) { // row i
+            Rcpp::checkUserInterrupt();  // check for ^C from user
+            for(int j=i+1; j<n; j++) { // row j
+                if(!NumericVector::is_na(x(i,k)) &&
+                   !NumericVector::is_na(x(j,k))) { // check for NAs
+                    ++result(j,i);
+                    if(x(i,k) != x(j,k))
+                        ++result(i,j);
+                }
+            }
+        }
+    }
+
+    // take proportions
+    for(int i=0; i<n; i++)
+        for(int j=i+1; j<n; j++)
+            result(j,i) = result(i,j) /= result(j,i);
+
+    return result;
+}
+```
+
+Create some data and calculate the distances.
+
+```{r try_it_out}
+set.seed(20160626)
+n <- 20
+p <- 200
+x <- matrix(sample(1:3, n*p, replace=TRUE), ncol=p)
+d <- compare_rows(x)
+```
+
+Make a heatmap of the results.
+
+```{r d3heatmap}
+library(d3heatmap)
+d3heatmap(d, Rowv=FALSE, Colv=FALSE)
+```

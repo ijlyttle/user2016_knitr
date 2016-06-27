@@ -1,8 +1,8 @@
 ---
 title: "HTMLwidgets within R Markdown"
-output: 
+output:
   html_document:
-    fig_height: 8
+    fig_height: 6
     fig_width: 10
 ---
 
@@ -11,6 +11,22 @@ the use of JavaScript-based graphics with R. A super nice feature is
 that the graphics will be rendered in the appropriate way, according
 to where they are called (in browser, within RStudio's plot frame,
 within an R Markdown document, or as part of a Shiny app.
+
+
+# DataTables
+
+Sortable, searchable data tables with
+`DT::datatable`. [DT](https://rstudio.github.io/DT/) is an interface
+to [DataTables](https://datatables.net/).
+
+```{r datatable}
+library(DT)
+datatable(iris)
+```
+
+
+
+# scatterD3
 
 Here's a scatterplot that you can zoom and pan, via
 [scatterD3](https://github.com/juba/scatterD3).
@@ -25,6 +41,8 @@ scatterD3(x, y, lab=paste0("pt", 1:n), col_var=grp,
           colors=c("slateblue", "Orchid"))
 ```
 
+# Leaflet maps
+
 Here's a map of the area via [leaflet](http://rstudio.github.io/leaflet/)
 
 ```{r leaflet_map, message=FALSE}
@@ -36,13 +54,25 @@ library(leaflet)
 leaflet() %>%
     setView(lng= lonlat$lon[1], lat=lonlat$lat[1],
             zoom=14) %>%
-    addProviderTiles("CartoDB.Positron") %>% 
-    addCircleMarkers(lng=lonlat$lon, 
+    addProviderTiles("CartoDB.Positron") %>%
+    addCircleMarkers(lng=lonlat$lon,
                      lat=lonlat$lat,
                      popup=paste0(lonlat$.id),
                      color=c("slateblue", "Orchid"),
                      fillColor=c("slateblue", "Orchid"))
 ```
+
+# dygraphs
+
+Zoomable time series plot with [dygraphs](https://rstudio.github.io/dygraphs/).
+
+```{r dygraphs}
+library(dygraphs)
+dygraph(sunspots) %>% dyRangeSelector()
+```
+
+
+# d3heatmap
 
 You can make heatmaps with [d3heatmap](https://github.com/rstudio/d3heatmap). For example, here's a heatmap of a correlation matrix:
 
@@ -50,6 +80,8 @@ You can make heatmaps with [d3heatmap](https://github.com/rstudio/d3heatmap). Fo
 library(d3heatmap)
 d3heatmap(cor(iris[,1:4]), Rowv=FALSE, Colv=FALSE, colors="Blues")
 ```
+
+# networkD3
 
 For network diagrams, consider [networkD3](https://github.com/christophergandrud/networkD3).
 
@@ -63,10 +95,28 @@ forceNetwork(Links = MisLinks, Nodes = MisNodes, Source = "source",
              Group = "group", opacity = 0.8, zoom = TRUE)
 ```
 
+# pairsD3
+
 Scatterplot matrices with [pairsD3](https://github.com/garthtarr/pairsD3/).
 
 ```{r pairsD3}
 library(pairsD3)
 pairsD3(iris[,1:4],group=iris[,5],
         labels=gsub("\\.", " ", names(iris)))
+```
+
+# three.js
+
+The [threejs](https://bwlewis.github.io/rthreejs/) package provides
+interactive 3d scatterplots and globe plots using
+[three.js](http://threejs.org/).
+
+```{r threejs}
+library(threejs)
+data(world.cities, package="maps")
+cities <- world.cities[order(world.cities$pop,decreasing=TRUE)[1:1000],]
+value  <- 100 * cities$pop / max(cities$pop)
+
+earth <- texture(system.file("images/world.jpg",package="threejs"))
+globejs(img=earth, lat=cities$lat, long=cities$long, value=value)
 ```

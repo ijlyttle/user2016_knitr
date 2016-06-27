@@ -3,10 +3,11 @@ title: "5-minute markdown test"
 author: "Ian Lyttle"
 date: "June 24, 2016"
 output:
-  word_document: default
-  html_vignette: default
+  tufte::tufte_handout: default
   tufte::tufte_html: default
+  html_vignette: default
   html_document: default
+  word_document: default
 ---
 
 ```{r setup, include=FALSE}

@@ -32,6 +32,7 @@ options(htmltools.dir.version = FALSE)
 
 - slides at http://bit.ly/2016rmd
 - examples at https://github.com/ijlyttle/user2016_knitr
+- etherpad at https://public.etherpad-mozilla.org/p/user2016_knitr
 
 # Part I: An introduction to R Markdown
 

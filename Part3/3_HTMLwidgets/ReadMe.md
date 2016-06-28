@@ -14,3 +14,6 @@ Some examples of packages that use htmlwidgets:
 - [networkD3](https://github.com/christophergandrud/networkD3)
 - [pairsD3](https://github.com/garthtarr/pairsD3/)
 - [qtlcharts](http://kbroman.org/qtlcharts)
+
+The R Markdown document here relies on a bunch of packages from CRAN,
+to be installed with `install.packages()`.

@@ -15,7 +15,7 @@
 
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<link href="site_libs/bootstrap-3.3.5/css/readable.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
@@ -97,34 +97,34 @@ button.code-folding-btn:focus {
 <style type="text/css">
 /* padding for bootstrap navbar */
 body {
-  padding-top: 51px;
+  padding-top: 66px;
   padding-bottom: 40px;
 }
 /* offset scroll position for anchor links (for fixed navbar)  */
 .section h1 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 
 .section h2 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 .section h3 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 .section h4 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 .section h5 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 .section h6 {
-  padding-top: 56px;
-  margin-top: -56px;
+  padding-top: 71px;
+  margin-top: -71px;
 }
 </style>
 
@@ -158,6 +158,12 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script src="site_libs/navigation-1.1/codefolding.js"></script>
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("show" === "show");
+});
+</script>
 
 
 
@@ -182,6 +188,9 @@ $(document).ready(function () {
 <li>
   <a href="about.html">About</a>
 </li>
+<li>
+  <a href="new_information.html">New Information</a>
+</li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         
@@ -192,6 +201,14 @@ $(document).ready(function () {
 
 <div class="fluid-row" id="header">
 
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
+
 
 
 
@@ -199,14 +216,60 @@ $(document).ready(function () {
 
 <div id="TOC">
 <ul>
-<li><a href="#build-websites">build websites</a></li>
+<li><a href="#build-websites">build websites</a><ul>
+<li><a href="#motivation">Motivation</a></li>
+<li><a href="#some-lessons-learned-along-the-way">Some lessons learned along the way:</a><ul>
+<li><a href="#advice">Advice</a></li>
+<li><a href="#configuration">Configuration</a></li>
+<li><a href="#new-page">New page</a></li>
+<li><a href="#deployment">Deployment</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </div>
 
 <div id="build-websites" class="section level1">
 <h1>build websites</h1>
-<p>We can use R Markdown to build websites.</p>
-<p>This</p>
+<div id="motivation" class="section level2">
+<h2>Motivation</h2>
+<p>Websites can be a great way to collect parts of a report or an investigation - show Lexington.</p>
+</div>
+<div id="some-lessons-learned-along-the-way" class="section level2">
+<h2>Some lessons learned along the way:</h2>
+<div id="advice" class="section level3">
+<h3>Advice</h3>
+<p>Usual helpful and timely advice from Jenny Bryan:</p>
+<p><a href="https://twitter.com/JennyBryan/status/746855616849731584" class="uri">https://twitter.com/JennyBryan/status/746855616849731584</a></p>
+<p><a href="http://stat545.com/block007_first-use-rmarkdown.html" class="uri">http://stat545.com/block007_first-use-rmarkdown.html</a></p>
+<p>Great stuff here, on particularly on troubleshooting.</p>
+<p>The rprojroot package is your friend. Show this a little bit.</p>
+<p>No hard paths. Ever.</p>
+</div>
+<div id="configuration" class="section level3">
+<h3>Configuration</h3>
+<p>The first thing to remind myself of - the minimal set for <code>rmarkdown::render_site()</code> to work is:</p>
+<ul>
+<li>a <code>_site.yml</code> file</li>
+<li>an <code>index.(R)md</code> file</li>
+</ul>
+<p>It would be a neat exercise to have someone in suggest a theme from <a href="http://bootswatch.com/">Bootswatch</a>.</p>
+<p>In <code>_site.yml</code> The stuff you can put into yml underneath <code>html_document:</code> corresponds to arguments made to <code>rmarkdown::html_document()</code>.</p>
+</div>
+<div id="new-page" class="section level3">
+<h3>New page</h3>
+<ol style="list-style-type: decimal">
+<li><p>Create <code>new_page.Rmd</code> (I like to use new text file)</p></li>
+<li><p>Put in title yml</p></li>
+<li><p>Add to the navbar.</p></li>
+<li><p>Create the content.</p></li>
+</ol>
+</div>
+<div id="deployment" class="section level3">
+<h3>Deployment</h3>
+<p>When deploying your site keep in mind if you are using gh-pages or are using something else.</p>
+<p>If <code>gh-pages</code>, use <code>output_dir: &quot;.&quot;</code>, put in <code>.nojekyll</code>. If not, use <code>output_dir: _site</code>.</p>
+</div>
+</div>
 </div>
 
 

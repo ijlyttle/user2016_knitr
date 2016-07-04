@@ -1,9 +1,9 @@
 ---
 title: "Introduction"
 output:
+  tufte::tufte_html: default
   rmarkdown::html_vignette: default
   html_document: default
-  tufte::tufte_html: default
 ---
 
 * First and foremost, refer to http://rmarkdown.rstudio.com/

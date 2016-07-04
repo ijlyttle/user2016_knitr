@@ -1,9 +1,17 @@
 ---
 title: "Roll your own"
 output:
-  html_document: default
+  user2016docdemo::html_doc_4: 
+    default: true
+    self_contained: FALSE
+    lib_dir: "site_libs" 
   user2016docdemo::html_doc_0: default
-  user2016docdemo::html_doc_1: default
+  user2016docdemo::html_doc_1:
+    default: yes
+    theme: united
+    toc: yes
+    toc_float: yes
+  html_document: default
 ---
 
 ```{r eval=FALSE}

@@ -7,7 +7,9 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
+    - text: "New Information"
+      href: new_information.html
 output:
-  html_document:
+  user2016docdemo::html_doc_1:
     toc: true
     highlight: textmate

@@ -1,6 +1,6 @@
 # Shiny
 
-We can incorporate shiny into html documents. 
+We can incorporate shiny into R Markdown documents. 
 
 The biggest thing to keep in mind is that we need to keep a running R session, either running locally or on a Shiny server.
 

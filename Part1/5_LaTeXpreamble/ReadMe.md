@@ -4,6 +4,15 @@ Several versions of a single journal article (a
 [paper of mine from 2012](http://www.ncbi.nlm.nih.gov/pubmed/22384398))
 as R Markdown.
 
+These all require the [ricalc](https://github.com/kbroman/ricalc)
+package, from GitHub:
+
+```r
+install.packages("devtools")
+devtools::install_github("kbroman/ricalc")
+```
+
+
 - [`ailprob.Rmd`](ailprob.Rmd) - Basic R Markdown version
 - [`ailprob_dblsp_linenum.Rmd`](ailprob_dblsp_linenum.Rmd) - Version
   using [`mypreamble.tex`](mypreamble.tex) to get line numbering,
